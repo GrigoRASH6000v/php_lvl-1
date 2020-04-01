@@ -1,29 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <table border="1" width="100%" height="900">
-        <tr height="15%">
-            <td colspan="3">
-                <?php include_once "./blocks/header.php" ?>
-            </td>
-        </tr>
-        <tr>
-            <td width="15%"></td>
-            <td width="15%">
-            <?php include_once "./blocks/content.php" ?>
-            </td>
-            <td width="15%"></td>
-        </tr>
-        <tr height="15%">
-            <td colspan="3">
-                
-            </td>
-        </tr>
-    </table>
-</body>
-</html>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+    function f(id){
+        let price = document.getElementById(id).value
+        let str = "price="+price+"&id="+id;
+        $.ajax({
+            type:"GET",
+            url:"server.php",
+            data: str,
+            success: function(x){
+                alert(x)
+            }
+        })
+    }
+</script>
+
+
+<?php 
+    include "config.php";
+    $sql = "select * from shop";
+    $res = mysqli_query($connect, $sql);
+    $form='<table border="1" width="400">';
+    while($data = mysqli_fetch_assoc($res)){
+        //echo "Автомобиль ".$data['name']." стоит ".$data['price']."<br>";
+        $form.="<tr><td>".$data['name']."</td><td><input value=".$data['price']." type='text' id=".$data['id']."></td><td><input type='button' value='Сохранить' onclick='f(".$data['id'].")'></td></tr>";
+    }
+    $form.="</table>";
+    echo $form;
+?>
