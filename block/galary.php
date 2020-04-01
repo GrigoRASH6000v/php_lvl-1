@@ -5,7 +5,7 @@
     <div class="galary">
         <?php 
             include "config.php";
-            $sql = "select * from shop";
+            $sql = "select * from shop order by views DESC";
             $res = mysqli_query($connect, $sql);
             while($data = mysqli_fetch_assoc($res)){
                 echo $element = "<a href='./block/element.php?href=".$data['big-path']."' class='galary__item' onclick='addViews(".$data['id'].")'><img src='".$data['small-path']."' alt='cat' class='galary__item__img'><div class='blind'><i class='fas fa-eye'></i><span class='quantity-views'>".$data['views']."</span></div></a>";

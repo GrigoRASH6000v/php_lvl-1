@@ -41,9 +41,9 @@
                 type:"GET",
                 url:"server.php",
                 data: str,
-                success: function(x){
-                    alert(x)
-                }
+                // success: function(x){
+                //     alert(x)
+                // }
             })
        }
     </script>
