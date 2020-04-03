@@ -1,51 +1,40 @@
-<!-- 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script>
-    function f(id){
-        let price = document.getElementById(id).value
-        let str = "price="+price+"&id="+id;
-        $.ajax({
-            type:"GET",
-            url:"server.php",
-            data: str,
-            success: function(x){
-                alert(x)
-            }
-        })
-    }
-</script> -->
+<?php 
+    $x=rand(1,10);
+    $y=rand(1,10);
+    $res = $x+$y;
+    //echo $x+$y;
+?>
+
+
+<form action="server.php" method="POST" enctype="multipart/form-data">
+    <input type="hidden" value="<?=$res?>" name="correct" >
+    <p>Ввидите ФИО</p>
+    <input type="text" name="fio"><br>
+    <p>Расскажите о себе</p>
+    <textarea name="biogr" id="" cols="30" rows="10"></textarea>
+    <p>Какие языки вы знаете?</p>
+    <input type="checkbox" value="php" name="lang[]">php<br>
+    <input type="checkbox" value="js" name="lang[]">js<br>
+    <input type="checkbox" value="jawa" name="lang[]">jawa<br>
+    <p>Ваш город</p>
+    <select name="city" id="">
+        <option value="Москва">Москва</option>
+        <option value="Казань">Казань</option>
+        <option value="Самара">Самара</option>
+    </select>
+    <p>Ваш стаж работа</p>
+    <input type="radio" value="Менее 10 лет">Менее 10 лет<br>
+    <input type="radio" value="Более 10 лет">Более 10 лет<br>
+    <P>Ваш день рождения</P>
+    <input type="data" name="birthday"><br>
+    <p>Введите сумму чисел <?=$x?>+<?=$y?>=</p>
+    <input type="text" name="user">
+    <p>Выберите фото</p><br>
+    
+    <input type="file" name="photo[]" multiple accept="image/*">
+    <input type="submit" value="Сохранить">
+    
+</form>
 
 
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./style/normalize.css">
-    <link rel="stylesheet" href="./style/style.css">
-    <title>Cotogramm</title>
-</head>
-<body>
-    <?php include "./block/header.php" ?>
-    <?php include "./block/galary.php" ?>
-    <?php include "./block/footer.php" ?>
-    <script src="https://kit.fontawesome.com/2426fc9e9e.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script>
-       function addViews(id){
-            let str = "id="+id;
-            $.ajax({
-                type:"GET",
-                url:"server.php",
-                data: str,
-                // success: function(x){
-                //     alert(x)
-                // }
-            })
-       }
-    </script>
-</body>
-</html>
