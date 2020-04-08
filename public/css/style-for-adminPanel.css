@@ -1,0 +1,48 @@
+
+.admin-title{
+    color: white;
+    margin: 0;
+    line-height: 50px;
+}
+.block-authorization{
+    text-align: center;
+    padding: 20px;
+    max-width: 300px;
+    width: 100%;
+    margin: 0 auto;
+}
+.block-authorization h3{
+    margin: 0 0 15px 0;
+}
+
+.block-authorization input{
+    display: block;
+    margin: 0 auto 15px auto;
+}
+.block-authorization button {
+    transition-duration: 0.3s;
+    outline: none;
+    width: 150px;
+    height: 50px;
+    background-color: powderblue;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Circe';
+    color: black;
+    margin: 0 auto 0 auto;
+    border: none;
+}
+.block-authorization button:hover {
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+  .hidden{
+    display: none;
+}
+.admin-panel{
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid red;
+}
